@@ -86,9 +86,9 @@ const part1 = (rawInput) => {
 
   const lines = parseInput(rawInput);
 
-  const chunks = lines.map(line => chunk([...line], 4));
+  const chunks = lines.map((line) => chunk([...line], 4));
 
-  chunks.forEach(chunk => {
+  chunks.forEach((chunk) => {
     if (hasLoadedStacks) {
       padEmptyStacks();
       return;

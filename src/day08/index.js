@@ -7,11 +7,13 @@ const parseInput = (rawInput) => rawInput.split("\n");
 const part1 = (rawInput) => {
   const lines = parseInput(rawInput);
 
-  const grid = lines.map((line) => line.split("").map(num => parseInt(num)));
+  const grid = lines.map((line) => line.split("").map((num) => parseInt(num)));
 
   const gridSize = grid[0].length;
 
-  const visibility = Array(gridSize).fill(1).map(() => Array(gridSize).fill(1));
+  const visibility = Array(gridSize)
+    .fill(1)
+    .map(() => Array(gridSize).fill(1));
 
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
@@ -25,8 +27,8 @@ const part1 = (rawInput) => {
         let visRight = 1;
         let visLeft = 1;
 
-        while (i-k >= 0) {
-          let top = grid[i-k][j];
+        while (i - k >= 0) {
+          let top = grid[i - k][j];
           if (top >= thisHeight) {
             visTop = 0;
             break;
@@ -35,8 +37,8 @@ const part1 = (rawInput) => {
         }
 
         k = 1;
-        while (i+k < gridSize) {
-          let bottom = grid[i+k][j];
+        while (i + k < gridSize) {
+          let bottom = grid[i + k][j];
           if (bottom >= thisHeight) {
             visBottom = 0;
             break;
@@ -45,8 +47,8 @@ const part1 = (rawInput) => {
         }
 
         k = 1;
-        while (j+k < gridSize) {
-          let right = grid[i][j+k];
+        while (j + k < gridSize) {
+          let right = grid[i][j + k];
           if (right >= thisHeight) {
             visRight = 0;
             break;
@@ -55,8 +57,8 @@ const part1 = (rawInput) => {
         }
 
         k = 1;
-        while (j-k >= 0) {
-          let left = grid[i][j-k];
+        while (j - k >= 0) {
+          let left = grid[i][j - k];
           if (left >= thisHeight) {
             visLeft = 0;
             break;
@@ -71,7 +73,10 @@ const part1 = (rawInput) => {
     }
   }
 
-  return visibility.reduce((acc, row) => acc + row.reduce((acc, val) => acc + val, 0), 0);
+  return visibility.reduce(
+    (acc, row) => acc + row.reduce((acc, val) => acc + val, 0),
+    0,
+  );
 };
 
 const part2 = (rawInput) => {

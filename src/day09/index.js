@@ -94,7 +94,7 @@ const part1 = (rawInput) => {
     }
   };
 
-  inputLines.forEach(line => {
+  inputLines.forEach((line) => {
     const [dir, dist] = line.split(" ");
     moveHead(dir, parseInt(dist));
   });
@@ -116,7 +116,18 @@ const part2 = (rawInput) => {
   const knot8 = { x: 0, y: 0 };
   const tail = { x: 0, y: 0 };
 
-  const knots = [head, knot1, knot2, knot3, knot4, knot5, knot6, knot7, knot8, tail];
+  const knots = [
+    head,
+    knot1,
+    knot2,
+    knot3,
+    knot4,
+    knot5,
+    knot6,
+    knot7,
+    knot8,
+    tail,
+  ];
 
   const visited = new Set();
 

@@ -55,30 +55,36 @@ const alphaValue = {
   W: 49,
   X: 50,
   Y: 51,
-  Z: 52
+  Z: 52,
 };
 
 const part1 = (rawInput) => {
   const lines = parseInput(rawInput);
-  return lines.map((line) => {
-    const firstHalf = [...line].slice(0, line.length / 2);
-    const secondHalf = new Set([...line].slice(line.length / 2));
-    const intersection = firstHalf.filter((char) => secondHalf.has(char));
+  return lines
+    .map((line) => {
+      const firstHalf = [...line].slice(0, line.length / 2);
+      const secondHalf = new Set([...line].slice(line.length / 2));
+      const intersection = firstHalf.filter((char) => secondHalf.has(char));
 
-    return alphaValue[intersection[0]];
-  }).reduce((acc, curr) => acc + curr, 0);
+      return alphaValue[intersection[0]];
+    })
+    .reduce((acc, curr) => acc + curr, 0);
 };
 
 const part2 = (rawInput) => {
   const lines = parseInput(rawInput);
   const groups = chunk(lines, 3);
 
-  return groups.map((group) => {
-    const sets = group.map(g => new Set([...g]));
-    const intersection = [...sets[0]].filter((char) => sets[1].has(char) && sets[2].has(char));
+  return groups
+    .map((group) => {
+      const sets = group.map((g) => new Set([...g]));
+      const intersection = [...sets[0]].filter(
+        (char) => sets[1].has(char) && sets[2].has(char),
+      );
 
-    return alphaValue[intersection[0]];
-  }).reduce((acc, curr) => acc + curr, 0);
+      return alphaValue[intersection[0]];
+    })
+    .reduce((acc, curr) => acc + curr, 0);
 };
 
 run({

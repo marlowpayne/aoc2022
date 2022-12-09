@@ -1,6 +1,7 @@
 import run from "aocrunner";
 
-const parseInput = (rawInput) => rawInput.split("\n").map((line) => line.split(","))
+const parseInput = (rawInput) =>
+  rawInput.split("\n").map((line) => line.split(","));
 
 const part1 = (rawInput) => {
   const pairs = parseInput(rawInput).map((pair) =>
@@ -8,7 +9,7 @@ const part1 = (rawInput) => {
   );
   let count = 0;
 
-  pairs.forEach(pair => {
+  pairs.forEach((pair) => {
     const [min, max] = pair[0];
     const [min2, max2] = pair[1];
 
