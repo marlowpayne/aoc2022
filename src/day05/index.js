@@ -79,6 +79,11 @@ const processMoves2 = (lines) => {
 const parseInput = (rawInput) => rawInput.split("\n");
 
 const part1 = (rawInput) => {
+  stacks = [[]];
+  stackNum = 1;
+  nums = [];
+  hasLoadedStacks = false;
+
   const lines = parseInput(rawInput);
 
   const chunks = lines.map(line => chunk([...line], 4));
