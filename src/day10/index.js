@@ -77,7 +77,8 @@ const drawPixel = (screen, reg, cycle) => {
   const col = (cycle % 40) - 1;
 
   if (Math.abs(reg - col) <= 1) {
-    const newLine = screen[row].substring(0, col) + "#" + screen[row].substring(col + 1);
+    const newLine =
+      screen[row].substring(0, col) + "#" + screen[row].substring(col + 1);
     screen[row] = newLine;
   }
 
